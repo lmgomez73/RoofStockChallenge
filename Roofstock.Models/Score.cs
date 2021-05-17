@@ -4,7 +4,7 @@ namespace RoofstockChallenge.Model{
     public class Score
     {
         [JsonPropertyName("conditionScore")]
-        public object ConditionScore { get; set; }
+        public string ConditionScore { get; set; }
 
         [JsonPropertyName("crimeScore")]
         public string CrimeScore { get; set; }
@@ -13,10 +13,10 @@ namespace RoofstockChallenge.Model{
         public int NeighborhoodScore { get; set; }
 
         [JsonPropertyName("overallScore")]
-        public object OverallScore { get; set; }
+        public string OverallScore { get; set; }
 
         [JsonPropertyName("qualityScore")]
-        public object QualityScore { get; set; }
+        public string QualityScore { get; set; }
 
         [JsonPropertyName("schoolScore")]
         public string SchoolScore { get; set; }
@@ -28,7 +28,7 @@ namespace RoofstockChallenge.Model{
         public string FloodRiskScore { get; set; }
 
         [JsonPropertyName("walkabilityScore")]
-        public object WalkabilityScore { get; set; }
+        public string WalkabilityScore { get; set; }
     }
 
 }

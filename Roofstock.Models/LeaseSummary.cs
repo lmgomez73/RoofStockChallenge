@@ -1,3 +1,4 @@
+using System;
 using System.Text.Json.Serialization; 
 namespace RoofstockChallenge.Model{ 
 
@@ -7,10 +8,10 @@ namespace RoofstockChallenge.Model{
         public string Occupancy { get; set; }
 
         [JsonPropertyName("leasingStatus")]
-        public object LeasingStatus { get; set; }
+        public string LeasingStatus { get; set; }
 
         [JsonPropertyName("marketedRent")]
-        public object MarketedRent { get; set; }
+        public double MarketedRent { get; set; }
 
         [JsonPropertyName("paymentStatus")]
         public string PaymentStatus { get; set; }
@@ -28,10 +29,10 @@ namespace RoofstockChallenge.Model{
         public double? SecurityDepositAmount { get; set; }
 
         [JsonPropertyName("hasPet")]
-        public object HasPet { get; set; }
+        public bool HasPet { get; set; }
 
         [JsonPropertyName("petFeeAmount")]
-        public object PetFeeAmount { get; set; }
+        public double PetFeeAmount { get; set; }
 
         [JsonPropertyName("isPetsDeposit")]
         public bool IsPetsDeposit { get; set; }
@@ -55,10 +56,10 @@ namespace RoofstockChallenge.Model{
         public bool IsTenantIncomeAbove3x { get; set; }
 
         [JsonPropertyName("isTenantMayTerminateEarly")]
-        public object IsTenantMayTerminateEarly { get; set; }
+        public bool IsTenantMayTerminateEarly { get; set; }
 
         [JsonPropertyName("isTenantPurchaseOption")]
-        public object IsTenantPurchaseOption { get; set; }
+        public bool IsTenantPurchaseOption { get; set; }
     }
 
 }

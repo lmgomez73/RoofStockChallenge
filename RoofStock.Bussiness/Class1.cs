@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RoofstockChallenge.Data
+namespace RoofStock.Bussiness
 {
     public class Class1
     {

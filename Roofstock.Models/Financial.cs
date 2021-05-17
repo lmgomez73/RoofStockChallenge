@@ -1,11 +1,13 @@
 using System.Text.Json.Serialization; 
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System;
+
 namespace RoofstockChallenge.Model{ 
 
     public class Financial
     {
         [JsonPropertyName("capRate")]
-        public object CapRate { get; set; }
+        public double CapRate { get; set; }
 
         [JsonPropertyName("occupancy")]
         public string Occupancy { get; set; }
@@ -23,31 +25,31 @@ namespace RoofstockChallenge.Model{
         public double ListPrice { get; set; }
 
         [JsonPropertyName("salePrice")]
-        public object SalePrice { get; set; }
+        public double SalePrice { get; set; }
 
         [JsonPropertyName("marketValue")]
-        public object MarketValue { get; set; }
+        public double MarketValue { get; set; }
 
         [JsonPropertyName("monthlyHoa")]
-        public object MonthlyHoa { get; set; }
+        public double MonthlyHoa { get; set; }
 
         [JsonPropertyName("monthlyManagementFees")]
-        public object MonthlyManagementFees { get; set; }
+        public double MonthlyManagementFees { get; set; }
 
         [JsonPropertyName("monthlyRent")]
         public double MonthlyRent { get; set; }
 
         [JsonPropertyName("netYield")]
-        public object NetYield { get; set; }
+        public double NetYield { get; set; }
 
         [JsonPropertyName("turnOverFee")]
-        public object TurnOverFee { get; set; }
+        public double TurnOverFee { get; set; }
 
         [JsonPropertyName("rehabCosts")]
-        public object RehabCosts { get; set; }
+        public double RehabCosts { get; set; }
 
         [JsonPropertyName("rehabDate")]
-        public object RehabDate { get; set; }
+        public DateTime RehabDate { get; set; }
 
         [JsonPropertyName("yearlyInsuranceCost")]
         public double? YearlyInsuranceCost { get; set; }

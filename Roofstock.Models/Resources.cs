@@ -5,16 +5,16 @@ namespace RoofstockChallenge.Model{
     public class Resources
     {
         [JsonPropertyName("photos")]
-        public List<Photo> Photos { get; set; }
+        public List<Resource> Photos { get; set; }
 
         [JsonPropertyName("floorPlans")]
-        public List<FloorPlan> FloorPlans { get; set; }
+        public List<Resource> FloorPlans { get; set; }
 
         [JsonPropertyName("threeDRenderings")]
-        public List<ThreeDRendering> ThreeDRenderings { get; set; }
+        public List<Resource> ThreeDRenderings { get; set; }
 
         [JsonPropertyName("audios")]
-        public List<object> Audios { get; set; }
+        public List<Resource> Audios { get; set; }
     }
 
 }

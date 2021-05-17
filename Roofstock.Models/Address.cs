@@ -19,7 +19,7 @@ namespace RoofstockChallenge.Model{
         public string County { get; set; }
 
         [JsonPropertyName("district")]
-        public object District { get; set; }
+        public string District { get; set; }
 
         [JsonPropertyName("state")]
         public string State { get; set; }

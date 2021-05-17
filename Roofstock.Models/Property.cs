@@ -19,10 +19,10 @@ namespace RoofstockChallenge.Model{
         public int? BuyerUserId { get; set; }
 
         [JsonPropertyName("externalId")]
-        public object ExternalId { get; set; }
+        public string ExternalId { get; set; }
 
         [JsonPropertyName("programId")]
-        public object ProgramId { get; set; }
+        public string ProgramId { get; set; }
 
         [JsonPropertyName("isDwellCertified")]
         public bool IsDwellCertified { get; set; }
@@ -82,25 +82,25 @@ namespace RoofstockChallenge.Model{
         public double? Longitude { get; set; }
 
         [JsonPropertyName("propertyName")]
-        public object PropertyName { get; set; }
+        public string PropertyName { get; set; }
 
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
         [JsonPropertyName("highlights")]
-        public object Highlights { get; set; }
+        public string Highlights { get; set; }
 
         [JsonPropertyName("mainImageUrl")]
         public string MainImageUrl { get; set; }
 
         [JsonPropertyName("personalProperties")]
-        public object PersonalProperties { get; set; }
+        public int PersonalProperties { get; set; }
 
         [JsonPropertyName("diligenceVaultSummary")]
         public string DiligenceVaultSummary { get; set; }
 
         [JsonPropertyName("featuredReason")]
-        public object FeaturedReason { get; set; }
+        public string FeaturedReason { get; set; }
 
         [JsonPropertyName("status")]
         public string Status { get; set; }
@@ -145,28 +145,28 @@ namespace RoofstockChallenge.Model{
         public Resources Resources { get; set; }
 
         [JsonPropertyName("manager")]
-        public object Manager { get; set; }
+        public string Manager { get; set; }
 
         [JsonPropertyName("seller")]
-        public object Seller { get; set; }
+        public string Seller { get; set; }
 
         [JsonPropertyName("sellerBroker")]
-        public object SellerBroker { get; set; }
+        public string SellerBroker { get; set; }
 
         [JsonPropertyName("hoa")]
-        public object Hoa { get; set; }
+        public string Hoa { get; set; }
 
         [JsonPropertyName("lease")]
         public Lease Lease { get; set; }
 
         [JsonPropertyName("diligences")]
-        public List<object> Diligences { get; set; }
+        public List<Diligences> Diligences { get; set; }
 
         [JsonPropertyName("googleMapOption")]
         public GoogleMapOption GoogleMapOption { get; set; }
 
         [JsonPropertyName("inspectionType")]
-        public object InspectionType { get; set; }
+        public string InspectionType { get; set; }
     }
 
 }
