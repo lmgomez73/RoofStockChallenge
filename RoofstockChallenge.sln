@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoofstockChallenge", "Roofs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoofstockChallenge.Data", "RoofstockChallenge.Data\RoofstockChallenge.Data.csproj", "{4EE33BDB-7AB6-4D9A-96A7-57B964405157}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roofstock.Models", "Roofstock.Models\Roofstock.Models.csproj", "{261C3BFB-F100-4D42-A065-8920592C8881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoofstockChallenge.Model", "Roofstock.Models\RoofstockChallenge.Model.csproj", "{261C3BFB-F100-4D42-A065-8920592C8881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofstockChallenge.Test", "RoofstockChallenge.Test\RoofstockChallenge.Test.csproj", "{86400685-0AFA-4894-A2B7-2512EBD27A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoofstockChallenge.Test", "RoofstockChallenge.Test\RoofstockChallenge.Test.csproj", "{86400685-0AFA-4894-A2B7-2512EBD27A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoofStock.Business", "RoofStock.Bussiness\RoofStock.Business.csproj", "{CE988748-C37C-4B7D-B015-9C40351EF998}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoofStockChallenge.Business", "RoofStock.Bussiness\RoofStockChallenge.Business.csproj", "{CE988748-C37C-4B7D-B015-9C40351EF998}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

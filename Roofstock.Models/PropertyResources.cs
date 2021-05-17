@@ -7,10 +7,7 @@ namespace RoofstockChallenge.Model{
 
     public class PropertyResources
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Display(Name = "Id")]
-        public int IdPropertyResource{ get; set; }
+
         [JsonPropertyName("photos")]
         public List<Resource> Photos { get; set; }
 
@@ -22,6 +19,8 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("audios")]
         public List<Resource> Audios { get; set; }
+
+        public Property Property { get; set; }
     }
 
 }

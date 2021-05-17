@@ -1,6 +1,8 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization; 
+
 namespace RoofstockChallenge.Model{ 
 
     public class Resource
@@ -16,6 +18,13 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("resourceType")]
         public string ResourceType { get; set; }
+
+        [NotMapped]
+        public ResourceType typeEnum {
+
+            get { return (ResourceType)Enum.Parse<ResourceType>(ResourceType); }
+            set { ResourceType = Enum.GetName<ResourceType>(value); }
+        }
 
         [JsonPropertyName("isPublic")]
         public bool IsPublic { get; set; }
@@ -43,6 +52,21 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("textContent")]
         public string TextContent { get; set; }
+
+        public PropertyResources PropertyResources{ get; set; }
+
     }
 
+    public enum ResourceType
+    {
+        PropertyPhoto = 1,
+        PropertyFloorPlan=2,
+        Property3DTour=3,
+        PropertyAudio = 4
+    }
+
+    public class AudioResource : Resource { }
+    public class FloorPlanResource : Resource { }
+    public class ThreeDTourResource : Resource { }
+    public class PhotoResource : Resource { }
 }

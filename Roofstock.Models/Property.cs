@@ -147,7 +147,9 @@ namespace RoofstockChallenge.Model{
         public Valuation Valuation { get; set; }
 
         [JsonPropertyName("resources")]
-        public PropertyResources Resources { get; set; }
+        [NotMapped]
+        public PropertyResources ResourcesByTypes { get; set; }
+        public List<Resource> Resources{ get; set; }
 
         [JsonPropertyName("manager")]
         public string Manager { get; set; }

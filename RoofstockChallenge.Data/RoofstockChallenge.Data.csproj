@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Roofstock.Models\Roofstock.Models.csproj" />
+    <ProjectReference Include="..\Roofstock.Models\RoofstockChallenge.Model.csproj" />
   </ItemGroup>
 
 </Project>
