@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization; 
 namespace RoofstockChallenge.Model{ 
 
     public class Physical
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
+        public int IdPhysical { get; set; }
         [JsonPropertyName("bathRooms")]
         public double BathRooms { get; set; }
 

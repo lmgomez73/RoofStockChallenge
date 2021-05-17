@@ -1,8 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization; 
 namespace RoofstockChallenge.Model{ 
 
     public class Resource
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
         [JsonPropertyName("id")]
         public int Id { get; set; }
 

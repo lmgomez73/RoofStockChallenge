@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization; 
 namespace RoofstockChallenge.Model{ 
 
     public class GoogleMapOption
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
+        public int IdGoogleMapOption { get; set; }
         [JsonPropertyName("hasStreetView")]
         public bool HasStreetView { get; set; }
 

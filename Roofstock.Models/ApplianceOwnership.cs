@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization; 
 namespace RoofstockChallenge.Model{ 
 
     public class ApplianceOwnership
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
+        public int IdApplianceOwnership { get; set; }
         [JsonPropertyName("refrigerator")]
         public string Refrigerator { get; set; }
 

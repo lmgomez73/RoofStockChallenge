@@ -1,11 +1,16 @@
 using System.Text.Json.Serialization; 
 using System.Collections.Generic;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RoofstockChallenge.Model{ 
 
     public class Property
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
@@ -142,7 +147,7 @@ namespace RoofstockChallenge.Model{
         public Valuation Valuation { get; set; }
 
         [JsonPropertyName("resources")]
-        public Resources Resources { get; set; }
+        public PropertyResources Resources { get; set; }
 
         [JsonPropertyName("manager")]
         public string Manager { get; set; }

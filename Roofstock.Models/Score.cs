@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization; 
 namespace RoofstockChallenge.Model{ 
 
     public class Score
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
+        public int IdScore { get; set; }
         [JsonPropertyName("conditionScore")]
         public string ConditionScore { get; set; }
 

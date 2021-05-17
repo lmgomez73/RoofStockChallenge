@@ -1,11 +1,17 @@
 using System.Text.Json.Serialization; 
 using System.Collections.Generic;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RoofstockChallenge.Model{ 
 
     public class Financial
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
+        public int IdFinancial { get; set; }
         [JsonPropertyName("capRate")]
         public double CapRate { get; set; }
 
