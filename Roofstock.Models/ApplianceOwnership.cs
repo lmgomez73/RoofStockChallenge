@@ -26,6 +26,11 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("stove")]
         public string Stove { get; set; }
+
+        [ForeignKey("LeaseId")]
+        public Lease Lease { get; set; }
+
+        public int LeaseId { get; set; }
     }
 
 }

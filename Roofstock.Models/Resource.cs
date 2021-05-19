@@ -1,15 +1,23 @@
+using JsonSubTypes;
+using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization; 
+using System.Text.Json.Serialization;
 
-namespace RoofstockChallenge.Model{ 
-
+namespace RoofstockChallenge.Model{
+    [Newtonsoft.Json.JsonConverter(typeof(JsonSubtypes), "resourceType")]
+    [JsonSubtypes.KnownSubType(typeof(PhotoResource), "PropertyPhoto")]
+    [JsonSubtypes.KnownSubType(typeof(FloorPlanResource), "PropertyFloorPlan")]
+    [JsonSubtypes.KnownSubType(typeof(ThreeDTourResource), "Property3DTour")]
+    [JsonSubtypes.KnownSubType(typeof(AudioResource), "PropertyAudio")]
     public class Resource
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Display(Name = "Id")]
+        [Display(Name = "IdResource")]
+        public int IdResource { get; set; }
+
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
@@ -20,7 +28,7 @@ namespace RoofstockChallenge.Model{
         public string ResourceType { get; set; }
 
         [NotMapped]
-        public ResourceType typeEnum {
+        public ResourceType TypeEnum {
 
             get { return (ResourceType)Enum.Parse<ResourceType>(ResourceType); }
             set { ResourceType = Enum.GetName<ResourceType>(value); }
@@ -36,7 +44,7 @@ namespace RoofstockChallenge.Model{
         public string Filename { get; set; }
 
         [JsonPropertyName("sizeInByte")]
-        public long SizeInByte { get; set; }
+        public long? SizeInByte { get; set; }
 
         [JsonPropertyName("contentType")]
         public string ContentType { get; set; }
@@ -53,7 +61,9 @@ namespace RoofstockChallenge.Model{
         [JsonPropertyName("textContent")]
         public string TextContent { get; set; }
 
-        public PropertyResources PropertyResources{ get; set; }
+        
+        public int IdPropertyResources { get; set; }
+        
 
     }
 

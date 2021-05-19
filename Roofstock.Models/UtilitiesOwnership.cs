@@ -29,6 +29,9 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("pestControl")]
         public string PestControl { get; set; }
+        [ForeignKey("LeaseId")]
+        public Lease Lease { get; set; }
+        public int LeaseId { get; set; }
     }
 
 }

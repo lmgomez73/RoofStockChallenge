@@ -12,22 +12,24 @@ namespace RoofstockChallenge.Model{
         public int IdValuation { get; set; }
 
         [JsonPropertyName("avmBpoValue")]
-        public double AvmBpoValue { get; set; }
+        public double? AvmBpoValue { get; set; }
 
         [JsonPropertyName("avmBpoAdjValue")]
-        public double AvmBpoAdjValue { get; set; }
+        public double? AvmBpoAdjValue { get; set; }
 
         [JsonPropertyName("avmBpoDate")]
-        public DateTime AvmBpoDate { get; set; }
+        public DateTime? AvmBpoDate { get; set; }
 
         [JsonPropertyName("rsAvmValue")]
-        public double RsAvmValue { get; set; }
+        public double? RsAvmValue { get; set; }
 
         [JsonPropertyName("rsAvmDate")]
-        public DateTime RsAvmDate { get; set; }
+        public DateTime? RsAvmDate { get; set; }
 
         [JsonPropertyName("rsBpoMergeValue")]
         public double? RsBpoMergeValue { get; set; }
+        public Property Property { get; set; }
+        public int IdProperty { get; set; }
     }
 
 }

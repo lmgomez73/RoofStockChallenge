@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Http;
 
 namespace RoofstockChallenge.Model{ 
 
@@ -99,7 +100,7 @@ namespace RoofstockChallenge.Model{
         public string MainImageUrl { get; set; }
 
         [JsonPropertyName("personalProperties")]
-        public int PersonalProperties { get; set; }
+        public int? PersonalProperties { get; set; }
 
         [JsonPropertyName("diligenceVaultSummary")]
         public string DiligenceVaultSummary { get; set; }
@@ -147,9 +148,9 @@ namespace RoofstockChallenge.Model{
         public Valuation Valuation { get; set; }
 
         [JsonPropertyName("resources")]
-        [NotMapped]
-        public PropertyResources ResourcesByTypes { get; set; }
-        public List<Resource> Resources{ get; set; }
+        
+        public PropertyResources Resources { get; set; }
+        //public List<Resource> Resources{ get; set; }
 
         [JsonPropertyName("manager")]
         public string Manager { get; set; }

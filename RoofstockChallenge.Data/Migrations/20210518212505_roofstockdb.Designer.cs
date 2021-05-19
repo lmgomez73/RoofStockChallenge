@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RoofstockChallenge.Data;
 
 namespace RoofstockChallenge.Data.Migrations
 {
     [DbContext(typeof(RoofStockDbContext))]
-    partial class RoofStockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210518212505_roofstockdb")]
+    partial class roofstockdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +46,6 @@ namespace RoofstockChallenge.Data.Migrations
                     b.Property<string>("District")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdProperty")
-                        .HasColumnType("int");
-
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
@@ -57,9 +56,6 @@ namespace RoofstockChallenge.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdAddress");
-
-                    b.HasIndex("IdProperty")
-                        .IsUnique();
 
                     b.ToTable("Address");
 
@@ -72,7 +68,6 @@ namespace RoofstockChallenge.Data.Migrations
                             City = "San Francisco",
                             Country = "USA",
                             County = "test",
-                            IdProperty = 1625006,
                             State = "CA",
                             Zip = "94112"
                         },
@@ -82,7 +77,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "524 Burlington Avenue NE",
                             City = "Palm Bay",
                             Country = "USA",
-                            IdProperty = 1625007,
                             State = "FL",
                             Zip = "32907"
                         },
@@ -93,7 +87,6 @@ namespace RoofstockChallenge.Data.Migrations
                             City = "Titusville",
                             Country = "USA",
                             County = "Brevard",
-                            IdProperty = 1625008,
                             State = "FL",
                             Zip = "32796"
                         },
@@ -103,7 +96,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "1762 NW Glenridge Street",
                             City = "Palm Bay",
                             Country = "USA",
-                            IdProperty = 1625009,
                             State = "FL",
                             Zip = "32907"
                         },
@@ -113,7 +105,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "726 Lime Avenue NW",
                             City = "Palm Bay",
                             Country = "USA",
-                            IdProperty = 1625010,
                             State = "FL",
                             Zip = "32907"
                         },
@@ -124,7 +115,6 @@ namespace RoofstockChallenge.Data.Migrations
                             City = "Cocoa",
                             Country = "USA",
                             County = "Brevard",
-                            IdProperty = 1625011,
                             State = "FL",
                             Zip = "32927",
                             ZipPlus4 = "8661"
@@ -135,7 +125,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "3281 Kent Drive",
                             City = "Melbourne",
                             Country = "USA",
-                            IdProperty = 1625012,
                             State = "FL",
                             Zip = "32935"
                         },
@@ -145,7 +134,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "718 Reading Street SE",
                             City = "Palm Bay",
                             Country = "USA",
-                            IdProperty = 1625013,
                             State = "FL",
                             Zip = "32909"
                         },
@@ -155,7 +143,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "971 Fairhaven Street NE",
                             City = "Palm Bay",
                             Country = "USA",
-                            IdProperty = 1625014,
                             State = "FL",
                             Zip = "32907"
                         },
@@ -165,7 +152,6 @@ namespace RoofstockChallenge.Data.Migrations
                             Address1 = "1359 Carr Circle NE",
                             City = "Palm Bay",
                             Country = "USA",
-                            IdProperty = 1625015,
                             State = "FL",
                             Zip = "32905"
                         });
@@ -1039,6 +1025,9 @@ namespace RoofstockChallenge.Data.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AddressIdAddress")
+                        .HasColumnType("int");
+
                     b.Property<bool>("AllowRentGuaranteedOptout")
                         .HasColumnType("bit");
 
@@ -1169,6 +1158,8 @@ namespace RoofstockChallenge.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressIdAddress");
 
                     b.ToTable("Property");
 
@@ -2764,17 +2755,6 @@ namespace RoofstockChallenge.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RoofstockChallenge.Model.Address", b =>
-                {
-                    b.HasOne("RoofstockChallenge.Model.Property", "Property")
-                        .WithOne("Address")
-                        .HasForeignKey("RoofstockChallenge.Model.Address", "IdProperty")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Property");
-                });
-
             modelBuilder.Entity("RoofstockChallenge.Model.ApplianceOwnership", b =>
                 {
                     b.HasOne("RoofstockChallenge.Model.Lease", "Lease")
@@ -2846,6 +2826,15 @@ namespace RoofstockChallenge.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("RoofstockChallenge.Model.Property", b =>
+                {
+                    b.HasOne("RoofstockChallenge.Model.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressIdAddress");
+
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("RoofstockChallenge.Model.PropertyResources", b =>
@@ -2931,8 +2920,6 @@ namespace RoofstockChallenge.Data.Migrations
 
             modelBuilder.Entity("RoofstockChallenge.Model.Property", b =>
                 {
-                    b.Navigation("Address");
-
                     b.Navigation("Diligences");
 
                     b.Navigation("Financial");

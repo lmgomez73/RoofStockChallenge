@@ -8,7 +8,7 @@ namespace RoofstockChallenge.Model{
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Id")]
-        public int IdLease { get; set; }
+        public int LeaseId { get; set; }
         [JsonPropertyName("leaseSummary")]
         public LeaseSummary LeaseSummary { get; set; }
 
@@ -17,6 +17,9 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("applianceOwnership")]
         public ApplianceOwnership ApplianceOwnership { get; set; }
+
+        public Property Property { get; set; }
+        public int IdProperty { get; set; }
     }
 
 }

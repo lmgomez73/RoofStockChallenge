@@ -35,6 +35,9 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("zipPlus4")]
         public string ZipPlus4 { get; set; }
+
+        public Property Property { get; set; }
+        public int IdProperty { get; set; }
     }
 
 }

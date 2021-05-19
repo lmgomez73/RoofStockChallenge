@@ -35,6 +35,8 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("walkabilityScore")]
         public string WalkabilityScore { get; set; }
+        public Property Property { get; set; }
+        public int IdProperty { get; set; }
     }
 
 }

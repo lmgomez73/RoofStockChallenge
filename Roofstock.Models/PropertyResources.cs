@@ -7,19 +7,24 @@ namespace RoofstockChallenge.Model{
 
     public class PropertyResources
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
+        
+        public int IdPropertyResources { get; set; }
 
         [JsonPropertyName("photos")]
-        public List<Resource> Photos { get; set; }
+        public List<PhotoResource> Photos { get; set; }
 
         [JsonPropertyName("floorPlans")]
-        public List<Resource> FloorPlans { get; set; }
+        public List<FloorPlanResource> FloorPlans { get; set; }
 
         [JsonPropertyName("threeDRenderings")]
-        public List<Resource> ThreeDRenderings { get; set; }
+        public List<ThreeDTourResource> ThreeDRenderings { get; set; }
 
         [JsonPropertyName("audios")]
-        public List<Resource> Audios { get; set; }
-
+        public List<AudioResource> Audios { get; set; }
+        public int PropertyId { get; set; }
         public Property Property { get; set; }
     }
 

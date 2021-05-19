@@ -23,6 +23,8 @@ namespace RoofstockChallenge.Model{
 
         [JsonPropertyName("povLongitude")]
         public double PovLongitude { get; set; }
+        public Property Property { get; set; }
+        public int IdProperty { get; set; }
     }
 
 }

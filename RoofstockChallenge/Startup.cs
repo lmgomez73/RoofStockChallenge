@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RoofstockChallenge.Business;
 using RoofstockChallenge.Data;
 
 namespace RoofstockChallenge
@@ -31,7 +32,9 @@ namespace RoofstockChallenge
             services.AddDbContext<RoofStockDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("RoofStockDB"));
+                options.EnableSensitiveDataLogging();
             });
+            services.AddScoped<IPropertyService, PropertyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

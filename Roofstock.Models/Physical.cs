@@ -28,16 +28,19 @@ namespace RoofstockChallenge.Model{
         public int SquareFeet { get; set; }
 
         [JsonPropertyName("stories")]
-        public int Stories { get; set; }
+        public int? Stories { get; set; }
 
         [JsonPropertyName("units")]
-        public int Units { get; set; }
+        public int? Units { get; set; }
 
         [JsonPropertyName("yearBuilt")]
         public int YearBuilt { get; set; }
 
         [JsonPropertyName("zipYearBuilt")]
-        public int ZipYearBuilt { get; set; }
+        public int? ZipYearBuilt { get; set; }
+
+        public Property Property { get; set; }
+        public int IdProperty { get; set; }
     }
 
 }
