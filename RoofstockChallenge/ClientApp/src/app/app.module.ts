@@ -9,6 +9,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { PropertiesComponent } from './properties/properties.component';
+import { PropertiesService } from './properties/properties.service';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    PropertiesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,9 +30,10 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'properties', component:PropertiesComponent },
     ])
   ],
-  providers: [],
+  providers: [PropertiesService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

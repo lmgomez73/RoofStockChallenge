@@ -25,13 +25,14 @@ namespace RoofstockChallenge.Business
         public List<PropertyDTO> GetProperties()
         {
             List<PropertyDTO> properties = new List<PropertyDTO>();
-            properties = _context.Property.Include(x => x.Address).Include(x => x.Financial).Select(p => new PropertyDTO {
-                Address = p.Address.Address1,
-                GrossYield = (double)p.Financial.MonthlyRent * 12 *100 / p.Financial.ListPrice,
+            var p = _context.Property.Include(x => x.Physical).ToList();
+            properties = _context.Property.Include(x => x.Address).Include(x => x.Financial).Include(x => x.Physical).Select(p => new PropertyDTO {
+                Address = p.Address.Address1  + " "+p.Address.City + ", "+ p.Address.State +" " +p.Address.Zip,
+                GrossYield = (double)p.Financial.MonthlyRent * 12 * 100 / p.Financial.ListPrice,
                 IdProperty = p.Id,
                 ListPrice = p.Financial.ListPrice,
                 MonthlyRent = p.Financial.MonthlyRent,
-                YearBuilt = 1992
+                YearBuilt = p.Physical == null ? null : p.Physical.YearBuilt
             }
             ).ToList();
             return properties;
