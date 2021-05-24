@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+// @use '~@angular/material' as mat;
+
+// @include mat.core();
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// @mixin theme-color-grabber($theme) {
+//     // Parse the theme and create variables for each color in the pallete
+//     $primary: map-get($theme, primary);
+//     $accent: map-get($theme, accent);
+//     $warn: map-get($theme, warn);
+//     // Create theme specfic styles
+//     .primaryColorBG {
+//       background-color: mat-color($primary);
+//     }
+//     .accentColorBG {
+//       background-color: mat-color($accent);
+//     }
+//     .warnColorBG {
+//       background-color: mat-color($warn);
+//     }
+//   }
+@import '~@angular/material/theming';
+
+// Define a custom mixin that takes in the current theme
+@mixin theme-color-grabber($theme) {
+  // Parse the theme and create variables for each color in the pallete
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  // Create theme specfic styles
+  .primaryColorBG {
+    background-color: mat-color($primary);
+  }
+  .accentColorBG {
+    background-color: mat-color($accent);
+  }
+  .warnColorBG {
+    background-color: mat-color($warn);
+  }
+  color: mat-color($foreground, text);
+  background-color: mat-color($background, card);
+}

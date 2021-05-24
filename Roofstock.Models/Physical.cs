@@ -34,7 +34,7 @@ namespace RoofstockChallenge.Model{
         public int? Units { get; set; }
 
         [JsonPropertyName("yearBuilt")]
-        public int YearBuilt { get; set; }
+        public int? YearBuilt { get; set; }
 
         [JsonPropertyName("zipYearBuilt")]
         public int? ZipYearBuilt { get; set; }

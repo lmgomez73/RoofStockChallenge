@@ -41,14 +41,16 @@ namespace RoofstockChallenge.Controllers
 
         // POST api/<PropertyController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] PropertyDTO value)
         {
+            _service.AddProperty(value);
         }
 
         // PUT api/<PropertyController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] PropertyDTO value)
         {
+            _service.UpdateProperty(value, id);
         }
 
         // DELETE api/<PropertyController>/5

@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+  }
+.headerButton{
+  justify-content: flex-end;
+}
+
+
+// .component-page-header {
+//   display: flex;
+//   align-items: center;
+//   padding-left: 0;
+// //   @media (max-width: constants.$small-breakpoint-width) {
+// //     padding-left: 0;
+// //   }
+// }
+
+h1 {
+  outline: none;
+  padding: 24px 8px;
+  font-size: 20px;
+//   @media (max-width: constants.$small-breakpoint-width) {
+//     padding: 24px 8px;
+//     font-size: 20px;
+//   }
+}
+

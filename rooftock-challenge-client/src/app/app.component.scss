@@ -1,0 +1,61 @@
+
+.app {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+//   html, body, app-root, .app-frame {
+//     overflow: hidden;
+//     margin: 0;
+//     height: 100%;
+//     box-sizing: border-box;
+//     color: #e0e0e0;
+// }
+  
+  .mat-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1 0 auto;
+  }
+  
+  .mat-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+
+  @import "~@angular/material/theming";
+@include mat-core();
+$angular-primary: mat-palette($mat-teal, 500, 100, 900);
+$angular-accent: mat-palette($mat-pink, A200, A100, A400);
+$angular-warn: mat-palette($mat-red);
+$angular-default-theme: mat-light-theme(
+  (
+    color: (
+      primary: $angular-primary,
+      accent: $angular-accent,
+      warn: $angular-warn,
+    ),
+  )
+);
+// @include angular-material-theme($angular-default-theme);
+
+// $angular-dark-theme: mat-dark-theme(
+//   (
+//     color: (
+//       primary: $angular-primary,
+//       accent: $angular-accent,
+//       warn: $angular-warn,
+//     ),
+//   )
+// );
+// .darkMode {
+//   @include angular-material-color($angular-dark-theme);
+// }
+app-root {
+    background: map-get($mat-dark-theme-background, background );
+  }

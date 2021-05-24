@@ -10,5 +10,7 @@ namespace RoofstockChallenge.Business
     public interface IPropertyService
     {
         List<PropertyDTO> GetProperties();
+        void AddProperty(PropertyDTO dto);
+        void UpdateProperty(PropertyDTO dto, int id);
     }
 }
