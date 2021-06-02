@@ -6,6 +6,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <UserSecretsId>38fd1db9-3f8c-4298-83a3-b23dd4c33012</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,7 +39,5 @@
     <ProjectReference Include="..\Roofstock.Models\RoofstockChallenge.Model.csproj" />
   </ItemGroup>
 
-
- 
 
 </Project>

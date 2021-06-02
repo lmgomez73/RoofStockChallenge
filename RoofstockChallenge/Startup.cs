@@ -26,20 +26,15 @@ namespace RoofstockChallenge
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddAutoMapper(typeof(Startup).Assembly);
+            
 
             services.AddAutoMapper(typeof(PropertyProfile));
-            // In production, the Angular files will be served from this directory
             services.AddCors(o => o.AddPolicy("PublicPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "ClientApp/dist";
-            //});
             services.AddDbContext<RoofStockDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("RoofStockDB"));
@@ -64,10 +59,7 @@ namespace RoofstockChallenge
             app.UseCors("PublicPolicy");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            //if (!env.IsDevelopment())
-            //{
-            //    app.UseSpaStaticFiles();
-            //}
+
 
             app.UseRouting();
 
@@ -78,18 +70,6 @@ namespace RoofstockChallenge
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
-            //app.UseSpa(spa =>
-            //{
-            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
-            //    // see https://go.microsoft.com/fwlink/?linkid=864501
-
-            //    spa.Options.SourcePath = "ClientApp";
-
-            //    if (env.IsDevelopment())
-            //    {
-            //        spa.UseAngularCliServer(npmScript: "ng serve");
-            //    }
-            //});
         }
     }
 }

@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace RoofstockChallenge.Controllers
 {
@@ -18,12 +17,13 @@ namespace RoofstockChallenge.Controllers
         private readonly ILogger<PropertyController> _logger;
         private readonly IPropertyService _service;
 
-        // GET: api/<PropertyController>
         public PropertyController(ILogger<PropertyController> logger, IPropertyService service)
         {
             _logger = logger;
             _service = service;
         }
+
+        // GET: api/<PropertyController>
         [HttpGet]
         [ApiConventionMethod(typeof(DefaultApiConventions),
              nameof(DefaultApiConventions.Get))]

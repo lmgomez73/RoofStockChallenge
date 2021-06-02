@@ -150,7 +150,7 @@ namespace RoofstockChallenge.Model{
         [JsonPropertyName("resources")]
         
         public PropertyResources Resources { get; set; }
-        //public List<Resource> Resources{ get; set; }
+        
 
         [JsonPropertyName("manager")]
         public string Manager { get; set; }
