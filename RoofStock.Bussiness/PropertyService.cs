@@ -33,9 +33,11 @@ namespace RoofstockChallenge.Business
             return properties;
         }
 
+        //update property and its dependencies
         public void UpdateProperty(PropertyDTO dto, int id)
         {
             var property = _mapper.Map<Property>(dto);
+
             var address=_context.Address.First(x => x.IdProperty == property.Id);
             address.State = property.Address.State;
             address.Zip = property.Address.Zip;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoofstockChallenge.Model.DTO
+namespace RoofstockChallenge.Model
 {
-    public class DetailsDTO
+    public class AudioResource : Resource
     {
     }
 }

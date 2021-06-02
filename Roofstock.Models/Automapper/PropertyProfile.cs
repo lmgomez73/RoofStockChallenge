@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using RoofstockChallenge.Model.DTO;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,9 @@ namespace RoofstockChallenge.Model.Automapper
 {
     public class PropertyProfile : Profile
     {
-        public PropertyProfile()
+        private readonly ILogger<PropertyProfile> _logger;
+
+        public PropertyProfile(ILogger<PropertyProfile> logger)
         {
             CreateMap<Property, PropertyDTO>()
                 .ForMember(x => x.Address, opt => opt.MapFrom(source => source.Address.Address1 + ", " + source.Address.City + ", " + source.Address.State + ", " + source.Address.Zip))
@@ -34,18 +37,28 @@ namespace RoofstockChallenge.Model.Automapper
                     IdProperty = source.IdProperty,
                     YearBuilt = source.YearBuilt
                 }));
+            this._logger = logger;
         }
         private Address MapStringToAddress(string addressString, int idProperty)
         {
-            var split = addressString.Split(',');
-            int count = split.Length;
-            Address result = new Address();
-            result.IdProperty = idProperty;
-            result.Address1 = split[0].Trim();
-            result.City = count > 0 ? split[1].Trim() : null;
-            result.State = count > 1 ? split[2].Trim() : null;
-            result.Zip = count > 2 ? split[3].Trim() : null;
-            return result;
+            try
+            {
+                var split = addressString.Split(',');
+                int count = split.Length;
+                Address result = new Address();
+                result.IdProperty = idProperty;
+                result.Address1 = split[0].Trim();
+                result.City = count > 0 ? split[1].Trim() : null;
+                result.State = count > 1 ? split[2].Trim() : null;
+                result.Zip = count > 2 ? split[3].Trim() : null;
+                return result;
+            }
+            catch (Exception)
+            {
+                _logger.LogError("Error parsing Address for property {0}", idProperty);
+                return null;
+            }
+
         }
     }
 

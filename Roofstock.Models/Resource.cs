@@ -64,19 +64,6 @@ namespace RoofstockChallenge.Model{
         
         public int IdPropertyResources { get; set; }
         
-
     }
 
-    public enum ResourceType
-    {
-        PropertyPhoto = 1,
-        PropertyFloorPlan=2,
-        Property3DTour=3,
-        PropertyAudio = 4
-    }
-
-    public class AudioResource : Resource { }
-    public class FloorPlanResource : Resource { }
-    public class ThreeDTourResource : Resource { }
-    public class PhotoResource : Resource { }
 }

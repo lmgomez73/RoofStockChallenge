@@ -269,6 +269,7 @@ namespace RoofstockChallenge.Data
             #endregion
         }
 
+        //Get seed from https://samplerspubcontent.blob.core.windows.net/public/properties.json
         public static List<Property> GetSeedData()
         {
             List<Property> properties;
@@ -292,6 +293,7 @@ namespace RoofstockChallenge.Data
             return properties;
         }
 
+        //generates unique autoincrement id for seed data
         private static void GenerateIdValues(List<Property> properties)
         {
             #region initialize idValues
@@ -372,19 +374,16 @@ namespace RoofstockChallenge.Data
                     foreach (Resource resource in property.Resources.Photos)
                     {
                         resource.IdPropertyResources = property.Resources.IdPropertyResources;
-                        //resource.PropertyResources = property.Resources;
                         resource.IdResource = ++idResource;
                     }
                     foreach (Resource resource in property.Resources.Audios)
                     {
                         resource.IdPropertyResources = property.Resources.IdPropertyResources;
-                        //resource.PropertyResources = property.Resources;
                         resource.IdResource = ++idResource;
                     }
                     foreach (Resource resource in property.Resources.ThreeDRenderings)
                     {
                         resource.IdPropertyResources = property.Resources.IdPropertyResources;
-                        //resource.PropertyResources = property.Resources;
                         resource.IdResource = ++idResource;
                     }
                     foreach (Resource resource in property.Resources.FloorPlans)
