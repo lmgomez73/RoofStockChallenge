@@ -16,7 +16,7 @@ namespace RoofstockChallenge.Model{
         public double? CapRate { get; set; }
 
         [JsonPropertyName("occupancy")]
-        public string? Occupancy { get; set; }
+        public string Occupancy { get; set; }
 
         [JsonPropertyName("isSection8")]
         public bool IsSection8 { get; set; }

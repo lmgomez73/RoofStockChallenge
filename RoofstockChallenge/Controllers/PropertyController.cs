@@ -27,7 +27,7 @@ namespace RoofstockChallenge.Controllers
         [HttpGet]
         [ApiConventionMethod(typeof(DefaultApiConventions),
              nameof(DefaultApiConventions.Get))]
-        public async Task<IEnumerable<PropertyDTO>> Get()
+        public List<PropertyDTO> Get()
         {
             return _service.GetProperties();
         }
