@@ -13,7 +13,12 @@ namespace RoofstockChallenge.Model.Automapper
     {
         private readonly ILogger<PropertyProfile> _logger;
 
-        public PropertyProfile(ILogger<PropertyProfile> logger)
+        public PropertyProfile(ILogger<PropertyProfile> logger) : this()
+        {
+
+            this._logger = logger;
+        }
+        public PropertyProfile()
         {
             CreateMap<Property, PropertyDTO>()
                 .ForMember(x => x.Address, opt => opt.MapFrom(source => source.Address.Address1 + ", " + source.Address.City + ", " + source.Address.State + ", " + source.Address.Zip))
@@ -37,7 +42,6 @@ namespace RoofstockChallenge.Model.Automapper
                     IdProperty = source.IdProperty,
                     YearBuilt = source.YearBuilt
                 }));
-            this._logger = logger;
         }
         private Address MapStringToAddress(string addressString, int idProperty)
         {
